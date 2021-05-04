@@ -2,6 +2,7 @@ import 'package:elmatb5/login-page/login-cubit.dart';
 import 'package:elmatb5/login-page/login-screen.dart';
 import 'package:elmatb5/share/component/state-observer.dart';
 import 'package:elmatb5/share/cubit/app-cubit.dart';
+import 'package:elmatb5/share/network/local/storage-manager.dart';
 import 'package:elmatb5/share/themes/theme-manager.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
   await Firebase.initializeApp();
+  await StorageManager.init();
   runApp(MyApp());
 }
 
@@ -27,10 +29,13 @@ class MyApp extends StatelessWidget {
         BlocProvider<AppCubit>(create: (BuildContext context) => AppCubit()),
       ],
       child: BlocConsumer<AppCubit,AppState>(
-        listener: (BuildContext context, state) {},
+        listener: (BuildContext context, state) {
+        },
         builder: (BuildContext context, state) => MaterialApp(
           debugShowCheckedModeBanner: false,
-          theme: ThemeNotifier().getTheme(),
+          theme: ThemeManager().lightTheme,
+          darkTheme: ThemeManager().darkTheme,
+          themeMode: AppCubit.getInstance(context).isDark?ThemeMode.dark:ThemeMode.light,
           home: Login(),
         ),
       ),

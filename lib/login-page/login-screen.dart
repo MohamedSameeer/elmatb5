@@ -2,10 +2,8 @@ import 'package:elmatb5/home-page/home-screen.dart';
 import 'package:elmatb5/login-page/login-cubit.dart';
 import 'package:elmatb5/share/component/component.dart';
 import 'package:elmatb5/share/cubit/app-cubit.dart';
-import 'package:elmatb5/share/themes/theme-manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:progress_dialog/progress_dialog.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 import 'login-state.dart';
@@ -36,14 +34,12 @@ class Login extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             actions: [
-              //TODO DarkMode
-             /* IconButton(
+              IconButton(
                 icon: Icon(Icons.brightness_2),
                 onPressed: () {
                   AppCubit.getInstance(context).changeTheme();
-                  AppCubit.getInstance(context).isDark?
                 },
-              ),*/
+              ),
             ],
           ),
           body: Center(
@@ -59,8 +55,7 @@ class Login extends StatelessWidget {
                             "Already have an Account",
                             style: Theme.of(context)
                                 .textTheme
-                                .headline4
-                                .copyWith(color: Colors.black),
+                                .headline4,
                             maxLines: 3,
                             overflow: TextOverflow.ellipsis,
                           ),

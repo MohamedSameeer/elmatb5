@@ -1,27 +1,29 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class StorageManager {
-  static void saveData(String key, dynamic value) async {
-    final prefs = await SharedPreferences.getInstance();
+  static SharedPreferences prefs;
+  static init() async {
+    prefs = await SharedPreferences.getInstance();
+  }
+
+  static Future saveData(String key, dynamic value) async {
     if (value is int) {
-      prefs.setInt(key, value);
+      await prefs.setInt(key, value);
     } else if (value is String) {
-      prefs.setString(key, value);
+      await prefs.setString(key, value);
     } else if (value is bool) {
-      prefs.setBool(key, value);
+      await prefs.setBool(key, value);
     } else {
       print("Invalid Type");
     }
   }
 
-  static Future<dynamic> readData(String key) async {
-    final prefs = await SharedPreferences.getInstance();
-    dynamic obj = prefs.get(key);
-    return obj;
+  static bool readBool(String key){
+
+    return prefs.getBool(key);
   }
 
   static Future<bool> deleteData(String key) async {
-    final prefs = await SharedPreferences.getInstance();
-    return prefs.remove(key);
+    return await prefs.remove(key);
   }
 }

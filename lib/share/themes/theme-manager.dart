@@ -1,8 +1,8 @@
 import 'package:elmatb5/share/network/local/storage-manager.dart';
 import 'package:flutter/material.dart';
 
-class ThemeNotifier with ChangeNotifier {
-  final darkTheme = ThemeData(
+class ThemeManager {
+  final ThemeData darkTheme = ThemeData(
     primarySwatch: Colors.grey,
     primaryColor: Colors.black,
     brightness: Brightness.dark,
@@ -10,6 +10,11 @@ class ThemeNotifier with ChangeNotifier {
     accentColor: Colors.white,
     accentIconTheme: IconThemeData(color: Colors.black),
     dividerColor: Colors.black12,
+    textTheme: TextTheme(
+      headline4: TextStyle(
+        color: Colors.white,
+      )
+    ),
   );
 
   final lightTheme = ThemeData(
@@ -20,34 +25,15 @@ class ThemeNotifier with ChangeNotifier {
     accentColor: Colors.black,
     accentIconTheme: IconThemeData(color: Colors.white),
     dividerColor: Colors.white54,
+    textTheme: TextTheme(
+        headline4: TextStyle(
+          color: Colors.black,
+        )
+    ),
   );
 
-  ThemeData _themeData;
-  ThemeData getTheme() => _themeData;
-
-  ThemeNotifier() {
-    StorageManager.readData('themeMode').then((value) {
-      print('value read from storage: ' + value.toString());
-      var themeMode = value ?? 'light';
-      if (themeMode == 'light') {
-        _themeData = lightTheme;
-      } else {
-        print('setting dark theme');
-        _themeData = darkTheme;
-      }
-      notifyListeners();
-    });
+  Future setThemeMode(bool value) async {
+    return StorageManager.saveData('isDark',value);
   }
 
-  void setDarkMode() async {
-    _themeData = darkTheme;
-    StorageManager.saveData('themeMode', 'dark');
-    notifyListeners();
-  }
-
-  void setLightMode() async {
-    _themeData = lightTheme;
-    StorageManager.saveData('themeMode', 'light');
-    notifyListeners();
-  }
 }
