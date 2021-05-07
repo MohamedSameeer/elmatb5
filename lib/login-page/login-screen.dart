@@ -2,6 +2,7 @@ import 'package:elmatb5/home-page/home-screen.dart';
 import 'package:elmatb5/login-page/login-cubit.dart';
 import 'package:elmatb5/share/component/component.dart';
 import 'package:elmatb5/share/cubit/app-cubit.dart';
+import 'package:elmatb5/share/style/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
@@ -85,6 +86,7 @@ class Login extends StatelessWidget {
                       height: 20,
                     ),
                     MaterialButton(
+
                       onPressed: () {
                         if (loginPhoneFormKey.currentState.validate()) {
                           LoginCubit.getInstance(context)
@@ -93,11 +95,8 @@ class Login extends StatelessWidget {
                       },
                       child: Text(
                         "LOGIN",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
                       ),
-                      color: Colors.lightBlue,
+
                     ),
                   ],
                 ),
@@ -142,6 +141,7 @@ class Login extends StatelessWidget {
         ),
         buttons: [
           DialogButton(
+            color: buttonColor,
             onPressed: () {
               if (loginSmsCodeFormKey.currentState.validate())
                 LoginCubit.getInstance(context)
@@ -149,7 +149,9 @@ class Login extends StatelessWidget {
             },
             child: Text(
               "LOGIN",
-              style: TextStyle(color: Colors.white, fontSize: 20),
+              style: TextStyle(
+                  fontSize: 20,
+              ),
             ),
           )
         ])..show();

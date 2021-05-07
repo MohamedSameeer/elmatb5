@@ -1,19 +1,27 @@
 import 'package:elmatb5/share/network/local/storage-manager.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class ThemeManager {
   final ThemeData darkTheme = ThemeData(
     primarySwatch: Colors.grey,
-    primaryColor: Colors.black,
+    primaryColor: HexColor('#242526'),
     brightness: Brightness.dark,
-    backgroundColor: const Color(0xFF212121),
+    backgroundColor: HexColor('#18191A'),
     accentColor: Colors.white,
     accentIconTheme: IconThemeData(color: Colors.black),
+    selectedRowColor: HexColor('#13B9FD'),
     dividerColor: Colors.black12,
     textTheme: TextTheme(
       headline4: TextStyle(
         color: Colors.white,
       )
+    ),
+    dialogTheme: DialogTheme(
+
+    ),
+    dividerTheme: DividerThemeData(
+      color: Colors.grey
     ),
   );
 
@@ -29,6 +37,9 @@ class ThemeManager {
         headline4: TextStyle(
           color: Colors.black,
         )
+    ),
+    dividerTheme: DividerThemeData(
+        color: Colors.grey
     ),
   );
 

@@ -28,6 +28,32 @@ Widget defaultTextFormField({
       },
     );
 
+
+Widget searchTextField({
+  @required textType,
+  @required String hint,
+  @required prefixIcon,
+}) => TextField(
+  textAlignVertical: TextAlignVertical.bottom,
+  textAlign: TextAlign.start,
+  keyboardType: textType,
+  style: TextStyle(
+  ),
+  decoration: InputDecoration(
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(15.0),
+    ),
+    hintText:hint,
+    prefixIcon: prefixIcon,
+  ),
+
+  onChanged: (value){
+    //TODO: on code change go to database and get meals
+  },
+);
+
+
+
 ProgressDialog loading(context)=>ProgressDialog(context,
     type: ProgressDialogType.Normal, isDismissible: false, showLogs: true);
 

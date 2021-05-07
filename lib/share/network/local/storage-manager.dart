@@ -22,7 +22,9 @@ class StorageManager {
 
     return prefs.getBool(key);
   }
-
+  static String readString(String key){
+    return prefs.getString(key);
+  }
   static Future<bool> deleteData(String key) async {
     return await prefs.remove(key);
   }
