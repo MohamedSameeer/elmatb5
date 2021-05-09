@@ -1,5 +1,6 @@
 import 'package:elmatb5/home-page/home-screen.dart';
 import 'package:elmatb5/login-page/login-screen.dart';
+import 'package:elmatb5/profile-page/profile-screen.dart';
 import 'package:elmatb5/share/component/component.dart';
 import 'package:elmatb5/share/cubit/app-cubit.dart';
 import 'package:elmatb5/share/network/local/storage-manager.dart';
@@ -78,7 +79,7 @@ class MyDrawer extends StatelessWidget {
                   ],
                 ),
                 onTap: (){
-                  navigateTo(context, Home());
+                  navigateTo(context,Profile());
                   selectedItem="Profile";
                 },
                 //selected: selectedItem=='Profile',
