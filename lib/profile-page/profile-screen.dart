@@ -15,17 +15,27 @@ class Profile extends StatelessWidget {
       ),
       drawer: MyDrawer(),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(0.0),
         child: Column(
           children: [
             Expanded(
               flex: 1,
               child: Stack(
                 children: [
-                  Image.network(
-                    'https://lh3.googleusercontent.com/proxy/UGb7WrUom1p1bmpKlUBxufxifTJZhhO9e-t2TseEMJ5TO7tIqwuwfUsXf8B2tzcY5Qy2aqGqOQMUwarXPft10jGc',
+                  Container(
+                    child: Container(
                       width: double.infinity,
-                    height: 350.0,
+                      height: 350,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Image(
+                          fit: BoxFit.fill,
+                          image: NetworkImage(
+                            'https://media.cntraveler.com/photos/5f5fad3f7557491753644e3b/3:2/w_4050,h_2700,c_limit/50States50Cuisines-2020-AmberDay-Lede%20Option.jpg',
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                   Positioned(
                     bottom: 0,

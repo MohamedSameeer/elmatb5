@@ -41,6 +41,10 @@ dependencies:
   hexcolor: ^2.0.3
   #Shared preference
   shared_preferences: ^2.0.5
+  #rating bar
+  flutter_rating_bar: ^4.0.0
+  #toggle tabs
+  flutter_toggle_tab: ^1.1.0
 
 dev_dependencies:
   flutter_test:

@@ -33,7 +33,7 @@ Widget defaultTextFormField({
 
 Widget searchTextField({
   @required textType,
-  @required String hint,
+  String hint,
   @required prefixIcon,
 }) =>
     TextField(
@@ -65,9 +65,25 @@ Widget circleImage({
       width: width,
       height: height,
       decoration: BoxDecoration(
+        border: Border.all(
+          color: Colors.lightBlue,
+        ),
           shape: BoxShape.circle,
           image: DecorationImage(
             image: image,
             fit: BoxFit.fill,
           )),
     );
+
+
+Widget iconText({
+ @required IconData icon,
+ @required String text,
+})=>Row(
+children: [
+Icon(icon),
+Text(
+text,
+),
+],
+);

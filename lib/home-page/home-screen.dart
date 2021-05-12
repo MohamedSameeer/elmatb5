@@ -1,10 +1,10 @@
 import 'dart:ui';
 
+import 'package:elmatb5/kitchen-page/kitchen-screen.dart';
 import 'package:elmatb5/share/component/app-bar.dart';
 import 'package:elmatb5/share/component/component.dart';
 import 'package:elmatb5/share/component/drawer.dart';
-import 'package:elmatb5/share/cubit/app-cubit.dart';
-import 'package:elmatb5/share/style/colors.dart';
+
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -48,48 +48,65 @@ class Home extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                    
                     child: Column(
                       children: [
                         Expanded(
                           flex: 7,
-                          child: Container(
-                            padding:EdgeInsets.all(20.0),
-                            width: double.infinity,
-                            child: Text(
-                              "Well cooked",
-                              style: TextStyle(
-                                color: Colors.white,
+                          child: InkWell(
+                            onTap: (){
+                              navigateTo(context, Kitchens(
+                                category:'Well cooked',
+                                listOfKitchens: [],
                               ),
-                            ),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20.0),
-                              color:Colors.lightBlueAccent
-                               /* image: DecorationImage(
-                                  image: AssetImage('assets/images/meal.png'),
-                                )*/
+                              );
+                            },
+                            child: Container(
+                              padding:EdgeInsets.all(20.0),
+                              width: double.infinity,
+                              child: Text(
+                                "Well cooked",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20.0),
+                                color:Colors.lightBlueAccent
+                                 /* image: DecorationImage(
+                                    image: AssetImage('assets/images/meal.png'),
+                                  )*/
+                              ),
                             ),
                           ),
                         ),
                         SizedBox(height: 20.0,),
                         Expanded(
                           flex: 5,
-                          child: Container(
-                            padding:EdgeInsets.all(20.0),
-                            width: double.infinity,
-                            child: Text(
-                              "pastry",
-                              style: TextStyle(
-                                color: Colors.white,
+                          child: InkWell(
+                            onTap: (){
+                              navigateTo(context, Kitchens(
+                                category:'Well cooked',
+                                listOfKitchens: [],
                               ),
-                            ),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20.0),
-                              color: Colors.lightBlue
-                               /* image: DecorationImage(
-                                  fit: BoxFit.fill,
-                                  image: AssetImage('assets/images/meal.png'),
-                                )*/
+                              );
+                            },
+                            child: Container(
+                              padding:EdgeInsets.all(20.0),
+                              width: double.infinity,
+                              child: Text(
+                                "pastry",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                color: Colors.lightBlue
+                                 /* image: DecorationImage(
+                                    fit: BoxFit.fill,
+                                    image: AssetImage('assets/images/meal.png'),
+                                  )*/
+                              ),
                             ),
                           ),
                         )
@@ -102,42 +119,60 @@ class Home extends StatelessWidget {
                       children: [
                         Expanded(
                           flex: 5,
-                          child: Container(
-                            width: double.infinity,
-                            padding:EdgeInsets.all(20.0),
-                            child: Text(
-                              "semi-cooked",
-                              style: TextStyle(
-                                color: Colors.white,
+                          child: InkWell(
+                            onTap: (){
+                              navigateTo(context, Kitchens(
+                                category:'Well cooked',
+                                listOfKitchens: [],
                               ),
-                            ),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20.0),
-                              color: Colors.blueAccent,
-                               /* image: DecorationImage(
-                                  image: AssetImage('assets/images/meal.png'),
-                                )*/
+                              );
+                            },
+                            child: Container(
+                              width: double.infinity,
+                              padding:EdgeInsets.all(20.0),
+                              child: Text(
+                                "semi-cooked",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20.0),
+                                color: Colors.blueAccent,
+                                 /* image: DecorationImage(
+                                    image: AssetImage('assets/images/meal.png'),
+                                  )*/
+                              ),
                             ),
                           ),
                         ),
                         SizedBox(height: 20.0,),
                         Expanded(
                           flex: 7,
-                          child: Container(
-                            width: double.infinity,
-                            padding:EdgeInsets.all(20.0),
-                            child: Text(
-                              "desert",
-                              style: TextStyle(
-                                color: Colors.white,
+                          child: InkWell(
+                            onTap: (){
+                              navigateTo(context, Kitchens(
+                                category:'Well cooked',
+                                listOfKitchens: [],
                               ),
-                            ),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20.0),
-                              color: Colors.blue,
-                                /*image: DecorationImage(
-                                  image: AssetImage('assets/images/meal.png'),
-                                )*/
+                              );
+                            },
+                            child: Container(
+                              width: double.infinity,
+                              padding:EdgeInsets.all(20.0),
+                              child: Text(
+                                "desert",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20.0),
+                                color: Colors.blue,
+                                  /*image: DecorationImage(
+                                    image: AssetImage('assets/images/meal.png'),
+                                  )*/
+                              ),
                             ),
                           ),
                         )
